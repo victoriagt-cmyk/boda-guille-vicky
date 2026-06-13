@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirmación · Guille & Vicky</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Georgia', serif;
+    color: #1a1a1a;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+  }
+  .card {
+    max-width: 480px;
+    margin: 0 auto;
+    background: #f5f0e8;
+    border: 0.5px solid #c8bfaf;
+    padding: 2.8rem 2.4rem;
+  }
+  .top-line { border-top: 0.5px solid #b5a99a; margin-bottom: 1.6rem; }
+  h2 { font-size: 13px; font-style: italic; font-weight: 400; color: #1a1a1a; margin-bottom: 0.4rem; }
+  .subtitle { font-family: sans-serif; font-size: 10px; letter-spacing: 0.14em; color: #9a8f82; text-transform: uppercase; margin-bottom: 1rem; }
+  hr { border: none; border-top: 0.5px solid #d0c7ba; margin: 1.6rem 0; }
+
+  .notice {
+    font-family: sans-serif;
+    font-size: 11px;
+    color: #7a6f64;
+    line-height: 1.8;
+    padding-bottom: 1.4rem;
+    border-bottom: 0.5px solid #d0c7ba;
+    margin-bottom: 1.8rem;
+  }
+  .notice em { font-style: italic; font-family: Georgia, serif; color: #5a5048; }
+
+  .info-block { margin-bottom: 1.6rem; padding-bottom: 1.6rem; border-bottom: 0.5px solid #d0c7ba; }
+  .info-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.6rem; }
+  .info-key { font-family: sans-serif; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #9a8f82; }
+  .info-val { font-family: sans-serif; font-size: 12px; color: #3a3028; text-align: right; }
+  .info-val.mono { font-family: 'Courier New', monospace; font-size: 13px; color: #1a1a1a; letter-spacing: 0.04em; }
+
+  .section-label { font-family: sans-serif; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #b5a99a; margin-bottom: 1rem; }
+
+  label { display: block; font-family: sans-serif; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #9a8f82; margin-bottom: 0.4rem; }
+  input, textarea {
+    width: 100%; background: transparent; border: none;
+    border-bottom: 0.5px solid #c8bfaf; padding: 0.5rem 0;
+    font-family: sans-serif; font-size: 13px; color: #3a3028;
+    outline: none; margin-bottom: 1.4rem; transition: border-color 0.2s;
+  }
+  input:focus, textarea:focus { border-bottom-color: #7a6f64; }
+  textarea { resize: none; height: 60px; }
+
+  button {
+    width: 100%; background: #1a1a1a; color: #f5f0e8; border: none;
+    padding: 0.9rem; font-family: sans-serif; font-size: 10px;
+    letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer;
+    margin-top: 0.6rem; transition: background 0.2s;
+  }
+  button:hover { background: #3a3028; }
+  button:disabled { background: #9a8f82; cursor: not-allowed; }
+
+  .success { display: none; text-align: center; padding: 2rem 0; }
+  .success p { font-style: italic; font-size: 14px; color: #5a5048; margin-bottom: 0.6rem; }
+  .success small { font-family: sans-serif; font-size: 10px; letter-spacing: 0.1em; color: #9a8f82; }
+
+  .error-msg { font-family: sans-serif; font-size: 11px; color: #a0522d; margin-top: 0.5rem; display: none; }
+
+  .bottom-line { border-top: 0.5px solid #c8bfaf; margin-top: 1.8rem; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="top-line"></div>
+  <h2>Confirmación de asistencia</h2>
+  <p class="subtitle">Guille & Vicky · 14 de marzo 2027</p>
+
+  <p class="notice">
+    Por favor completá este formulario de forma individual — cada persona debe llenar el suyo, incluidos los acompañantes invitados.<br><br>
+    <em>Recordá: se trata de una celebración sin niños.</em>
+  </p>
+
+  <div class="info-block">
+    <div class="info-row">
+      <span class="info-key">Fecha</span>
+      <span class="info-val">14 de marzo · 2027</span>
+    </div>
+    <div class="info-row">
+      <span class="info-key">Hora</span>
+      <span class="info-val">17:00 hs</span>
+    </div>
+    <div class="info-row">
+      <span class="info-key">Lugar</span>
+      <span class="info-val">Escaramuza</span>
+    </div>
+    <div class="info-row">
+      <span class="info-key">Dirección</span>
+      <span class="info-val">Pablo de María 1185, esq. Charrúa</span>
+    </div>
+    <div class="info-row" style="margin-top: 1rem; padding-top: 1rem; border-top: 0.5px solid #e8e2d8;">
+      <span class="info-key">Colectivo de boda</span>
+      <span class="info-val" style="font-size:10px; color:#7a6f64;">Caja de Ahorro USD · BROU</span>
+    </div>
+    <div class="info-row">
+      <span class="info-key">Cuenta</span>
+      <span class="info-val mono">001371890-00002</span>
+    </div>
+  </div>
+
+  <div id="form-content">
+    <p class="section-label">Tu confirmación</p>
+
+    <label>Nombre completo *</label>
+    <input type="text" id="nombre" placeholder="Tu nombre">
+
+    <label>Restricciones alimentarias o alergias</label>
+    <input type="text" id="restricciones" placeholder="Vegetariano/a, celíaco/a, etc. (opcional)">
+
+    <label>Canción que no puede faltar</label>
+    <input type="text" id="cancion" placeholder="Tu pedido musical">
+
+    <label>Algo que quieras decirnos</label>
+    <textarea id="mensaje" placeholder="Mensaje opcional para los novios..."></textarea>
+
+    <hr>
+
+    <label>Teléfono o mail de contacto</label>
+    <input type="text" id="contacto" placeholder="Para coordinar si hace falta">
+
+    <button id="btn-enviar" onclick="enviar()">Confirmar asistencia</button>
+    <p class="error-msg" id="error-msg">Por favor ingresá tu nombre antes de confirmar.</p>
+  </div>
+
+  <div class="success" id="success">
+    <p>¡Nos vemos el 14 de marzo!</p>
+    <small>Escaramuza · Cordón · Montevideo</small>
+  </div>
+
+  <div class="bottom-line"></div>
+</div>
+
+<script>
+  // ⚠️ REEMPLAZAR con la URL del Web App de Google Apps Script después de publicarlo
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwraBfnTsa26le16T2wvx8lCFafsAUUKM0chrP8GLcA_xqxCN8sEp_eXdpcyDZl7mAz/exec";
+
+  async function enviar() {
+    const nombre = document.getElementById("nombre").value.trim();
+    if (!nombre) {
+      document.getElementById("error-msg").style.display = "block";
+      return;
+    }
+    document.getElementById("error-msg").style.display = "none";
+
+    const btn = document.getElementById("btn-enviar");
+    btn.disabled = true;
+    btn.textContent = "Enviando...";
+
+    const datos = {
+      nombre,
+      restricciones: document.getElementById("restricciones").value.trim(),
+      cancion:       document.getElementById("cancion").value.trim(),
+      mensaje:       document.getElementById("mensaje").value.trim(),
+      contacto:      document.getElementById("contacto").value.trim()
+    };
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(datos)
+      });
+      document.getElementById("form-content").style.display = "none";
+      document.getElementById("success").style.display = "block";
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = "Confirmar asistencia";
+      alert("Hubo un error al enviar. Por favor intentá de nuevo.");
+    }
+  }
+</script>
+</body>
+</html>
